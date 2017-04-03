@@ -1,0 +1,29 @@
+{
+  "name": "cityhub",
+  "version": "0.0.1",
+  "description": "Some city information",
+  "scripts": {
+    "dev": "node server"
+  },
+  "author": "Jeremy Fan <jeremyfan_14@live.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "vue": "^2.2.6",
+    "vue-server-renderer": "^2.2.6"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "css-loader": "^0.28.0",
+    "file-loader": "^0.11.1",
+    "url-loader": "^0.5.8",
+    "vue-loader": "^11.3.4",
+    "vue-ssr-webpack-plugin": "^2.1.0",
+    "vue-template-compiler": "^2.2.6",
+    "webpack": "^2.3.3",
+    "webpack-dev-middleware": "^1.10.1",
+    "webpack-hot-middleware": "^2.18.0"
+  }
+}
