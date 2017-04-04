@@ -1,6 +1,7 @@
 const express = require('express')
 const setupDevServer = require('./build/setup-dev-server')
 const vueServerRender = require('vue-server-renderer')
+const api = require('./src/api')
 
 const app = express()
 
@@ -21,6 +22,19 @@ app.get('/', (req, res) => {
 
 		res.send(html)
 	})
+})
+
+app.get('/test', (req, res) => {
+	api
+		.request('now', {
+			city: 'beijing'
+		})
+		.then((data) => {
+			res.send(data)
+		})
+		.catch((error) => {
+			console.log(error)
+		})
 })
 
 const port = process.env.PORT || 8005
