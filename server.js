@@ -1,15 +1,13 @@
 const express = require('express')
 const setupDevServer = require('./build/setup-dev-server')
-const vueServerRender = require('vue-server-renderer')
 const api = require('./src/api')
+
 
 const app = express()
 
 let renderer
 setupDevServer(app, (bundle, template) => {
-	renderer = vueServerRender.createBundleRenderer(bundle, {
-		template: template
-	})
+	renderer = require('./src/renderer')(bundle, template)
 })
 
 app.get('/', (req, res) => {
