@@ -22,6 +22,7 @@ app.get('/', (req, res) => {
 	})
 })
 
+/*
 app.get('/test', (req, res) => {
 	api
 		.request('now', {
@@ -34,6 +35,7 @@ app.get('/test', (req, res) => {
 			console.log(error)
 		})
 })
+*/
 
 const port = process.env.PORT || 8005
 app.listen(port, () => {
