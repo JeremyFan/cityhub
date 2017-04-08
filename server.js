@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 const setupDevServer = require('./build/setup-dev-server')
 const api = require('./src/api')
@@ -10,32 +11,32 @@ setupDevServer(app, (bundle, template) => {
 	renderer = require('./src/renderer')(bundle, template)
 })
 
+app.use(express.static(path.join(__dirname, 'dist')))
+
 app.get('/', (req, res) => {
 	if (!renderer) {
 		return res.end('waiting...')
 	}
 
-	renderer.renderToString((err, html) => {
-		if (err) console.error(err)
+	let context = { url: req.url }
+	let _errorHandler = function(){
+		console.log('render error')
+	}
+	let _endHandler = function(){
+		console.log('render end')
+		/*
+		res.write(
+		 `<script>window.__initial_state__=${JSON.stringify(context.state)}</script>`
+		);
+		*/
+	}
 
-		res.send(html)
-	})
+	renderer.renderToStream(context)
+		.on('error', _errorHandler)
+		.on('end', _endHandler)
+		.pipe(res)
 })
 
-/*
-app.get('/test', (req, res) => {
-	api
-		.request('now', {
-			city: 'beijing'
-		})
-		.then((data) => {
-			res.send(data)
-		})
-		.catch((error) => {
-			console.log(error)
-		})
-})
-*/
 
 const port = process.env.PORT || 8005
 app.listen(port, () => {

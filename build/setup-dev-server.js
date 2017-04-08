@@ -18,10 +18,10 @@ module.exports = function(app, callback) {
 	serverCompiler.watch({}, (err, stats) => {
 		if (err) throw err
 
+		console.log(`compiled server bundle [${(new Date).toLocaleString()}]`)
 		const bundlePath = path.join(webpackServerConfig.output.path, 'vue-ssr-bundle.json')
 		bundle = JSON.parse(fs.readFileSync(bundlePath, 'utf-8'))
 		
 		callback(bundle, template)
 	})
-
 }
