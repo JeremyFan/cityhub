@@ -13,14 +13,19 @@ setupDevServer(app, (bundle, template) => {
 
 app.use(express.static(path.join(__dirname, 'dist')))
 
-app.get('/', (req, res) => {
+// const resolve = file => path.resolve(__dirname, file)
+// const serve = path => express.static(resolve(path))
+// app.use('/dist', serve('./dist'))
+
+app.get('*', (req, res) => {
 	if (!renderer) {
 		return res.end('waiting...')
 	}
 
 	let context = { url: req.url }
-	let _errorHandler = function(){
+	let _errorHandler = function(error){
 		console.log('render error')
+		console.log(error)
 	}
 	let _endHandler = function(){
 		console.log('render end')

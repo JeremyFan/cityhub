@@ -1,4 +1,4 @@
-import app from './app'
+import { router, app } from './app'
 
 window.store = window.__INITIAL_STATE__ || {}
 
