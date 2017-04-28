@@ -1,8 +1,11 @@
 const path = require('path')
 const express = require('express')
+const favicon = require('serve-favicon')
 const setupDevServer = require('./build/setup-dev-server')
 const api = require('./src/api')
 
+const resolve = file => path.resolve(__dirname, file)
+const serve = path => express.static(resolve(path))
 
 const app = express()
 
@@ -11,11 +14,10 @@ setupDevServer(app, (bundle, template) => {
 	renderer = require('./src/renderer')(bundle, template)
 })
 
-app.use(express.static(path.join(__dirname, 'dist')))
+// app.use(express.static(path.join(__dirname, 'dist')))
 
-// const resolve = file => path.resolve(__dirname, file)
-// const serve = path => express.static(resolve(path))
-// app.use('/dist', serve('./dist'))
+app.use('/dist', serve('./dist'))
+app.use(favicon('./public/favicon.png'))
 
 app.get('*', (req, res) => {
 	if (!renderer) {
