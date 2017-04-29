@@ -1,9 +1,15 @@
 <template>
   <div>
-      <h3>citylist</h3>
-      <router-link to="/city/beijing">
-        {{ city }}
-      </router-link>
+    <ul class="citylist">
+      <li v-for="city in citylist" v-bind:style="{backgroundImage: 'url(/public/images/'+ city + '.jpg)'}">
+        <div class="cover">
+          <router-link :to="{ path: '/city/' + city }">
+            {{ city }}
+          </router-link>
+        </div>
+      </li>
+    </ul>
+
   </div>
 </template>
 
@@ -13,11 +19,67 @@ export default {
 
   data(){
     return {
-      city:'Beijing'
+      citylist:[
+        'beijing',
+        'shanghai',
+        'guangzhou',
+        'shenzhen',
+        'hangzhou',
+        'chengdu',
+        'nanjing',
+        'tianjin',
+        'xiamen'
+      ]
+    }
+  },
+
+  methods: {
+    test(){
+      console.log('fuck')
     }
   }
 }
 </script>
 
 <style lang="stylus">
+ul
+  margin 0
+  padding 0
+  list-style none
+
+.citylist
+  display flex
+  flex-wrap wrap
+  margin 0 80px
+  li
+    float left
+    width 33.3%
+    height 250px
+    background 50% 50% no-repeat
+    background-size cover
+    transition all .5s
+    
+    .cover
+      display flex
+      justify-content center
+      align-items center
+      width 100%
+      height 100%
+      background rgba(0, 0, 0, 0.5)
+      opacity 0
+      transition all .5s
+      a
+        border 1px solid #ccc
+        padding 8px 16px
+        color #ccc
+        text-decoration none
+        text-transform uppercase
+        transition all .25s
+        &:hover
+          // background #fff
+          // color #666
+          border-color #fff
+          color #fff
+    &:hover .cover
+      opacity 1
 </style>
