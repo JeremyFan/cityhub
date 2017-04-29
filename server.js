@@ -17,6 +17,7 @@ setupDevServer(app, (bundle, template) => {
 // app.use(express.static(path.join(__dirname, 'dist')))
 
 app.use('/dist', serve('./dist'))
+app.use('/public', serve('./public'))
 app.use(favicon('./public/favicon.png'))
 
 app.get('*', (req, res) => {
