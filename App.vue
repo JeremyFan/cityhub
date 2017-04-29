@@ -1,11 +1,10 @@
 <template>
   <div id="app">
     <header>
-      <router-link to="/" tag="div" class="title">
-        <a href="#"></a>
-        <span>CityHub</span>
+      <div class="title">
+        <router-link to="/">CityHub</router-link>
         <p>Focus on city health and happiness</p>
-      </router-link>
+      </div>
     </header>
     <router-view class="view"></router-view>
     <footer>
@@ -17,12 +16,26 @@
 </template>
 
 <style lang="stylus">
+@font-face{
+  font-family 'lombok'
+  src url('/public/fonts/Lombok.otf') format('truetype')
+  font-style normal
+  font-weight normal
+}
+
 body
   margin 0
   font 14px/1 Helvetica, arial, sans-serif
   
   // background #000
-  
+
+a
+  text-decoration none
+  &:hover
+  &:active
+  &:visited
+    color #000
+
 header
   margin 20px auto 50px
   
@@ -35,18 +48,13 @@ header
     // color #fff
     a
       display inline-block
-      width 24px
       height 24px
-      vertical-align middle
-      background no-repeat url('/public/logo.png')
-      background-size 100%
-    span
-      height 24px
-      line-height 28px
-      display inline-block
-      vertical-align middle
-      font-size 16px
-      letter-spacing .1em
+      padding-left 30px
+      line-height 20px
+      background no-repeat left url('/public/logo.png')
+      background-size auto 100%
+      font-family 'Lombok', Helvetica, arial, sans-serif
+      font-size 20px
     p
       text-transform uppercase
 
