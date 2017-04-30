@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="citylist">
-      <li v-for="city in citylist" v-bind:style="{backgroundImage: 'url(/public/images/'+ city + '.jpg)'}">
+      <li v-for="city in citylist" :style="{backgroundImage: 'url(/public/images/'+ city + '.jpg)'}">
         <div class="cover">
           <router-link :to="{ path: '/city/' + city }">
             {{ city }}
@@ -9,7 +9,6 @@
         </div>
       </li>
     </ul>
-
   </div>
 </template>
 
@@ -31,12 +30,6 @@ export default {
         'xiamen'
       ]
     }
-  },
-
-  methods: {
-    test(){
-      console.log('fuck')
-    }
   }
 }
 </script>
@@ -50,7 +43,6 @@ ul
 .citylist
   display flex
   flex-wrap wrap
-  margin 0 80px
   li
     float left
     width 33.3%
