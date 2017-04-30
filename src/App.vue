@@ -3,10 +3,10 @@
     <header>
       <div class="title">
         <router-link to="/">CityHub</router-link>
-        <p>Focus on city health and happiness</p>
+        <p>Care for the city health and happiness</p>
       </div>
     </header>
-    <router-view class="view"></router-view>
+    <router-view class="page"></router-view>
     <footer>
       <p class="copyright">
         Build by Jeremy Fan, 2017
@@ -36,6 +36,9 @@ a
   &:visited
     color #000
 
+.page
+  margin 0 80px
+
 header
   margin 20px auto 50px
   
@@ -48,11 +51,12 @@ header
     // color #fff
     a
       display inline-block
+      width 110px
       height 24px
-      padding-left 30px
       line-height 20px
       background no-repeat left url('/public/logo.png')
       background-size auto 100%
+      text-align right
       font-family 'Lombok', Helvetica, arial, sans-serif
       font-size 20px
     p

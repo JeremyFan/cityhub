@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './src/router'
+import router from './router'
 
 const app = new Vue({
   router,

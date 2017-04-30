@@ -3,7 +3,6 @@ import { router, app } from './app'
 export default context => {
 
 	return new Promise((resolve, reject) => {
-
 		/*
 		// store data
 		// let store = {}
