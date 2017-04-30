@@ -5,7 +5,7 @@ const path = require('path')
 module.exports = {
 	target: 'node',
 	devtool: '#source-map',
-	entry: './entry-server.js',
+	entry: './src/entry-server.js',
 	output: {
 		path: path.resolve(__dirname, '../dist'),
 		publicPath: '/dist/',

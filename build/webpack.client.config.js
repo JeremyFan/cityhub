@@ -3,10 +3,11 @@ const path = require('path')
 
 module.exports = {
 	devtool: '#cheap-module-eval-source-map',
-	entry: './entry-client.js',
+	entry: './src/entry-client.js',
 	output: {
 		path: path.resolve(__dirname, '../dist'),
 		publicPath: '/dist/',
+		// filename: '[name].bundle.js'
 		filename: 'entry-client.js'
 		// filename: '[name].[chunkhash].js',
 	},

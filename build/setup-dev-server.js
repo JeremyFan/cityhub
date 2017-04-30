@@ -8,7 +8,7 @@ module.exports = function(app, callback) {
 	let template
 	let bundle
 
-	const tmplPath = './index.html'
+	const tmplPath = './src/index.html'
 	if (fs.existsSync(tmplPath)) {
 		template = fs.readFileSync(tmplPath, 'utf-8')
 	}
