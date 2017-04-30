@@ -2,7 +2,6 @@ const path = require('path')
 const express = require('express')
 const favicon = require('serve-favicon')
 const setupDevServer = require('./build/setup-dev-server')
-const api = require('./src/api')
 
 const resolve = file => path.resolve(__dirname, file)
 const serve = path => express.static(resolve(path))
