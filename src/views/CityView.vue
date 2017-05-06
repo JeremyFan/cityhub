@@ -27,7 +27,6 @@ function preFetch({store, route}) {
     })
     .then(data => {
       const { aqi, now } = data
-      console.log(aqi)
       Object.assign(store, { aqi: aqi.city, now })
     })
 }
