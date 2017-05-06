@@ -3,13 +3,15 @@
   "version": "0.0.1",
   "description": "Some city information",
   "scripts": {
-    "dev": "node server"
+    "dev": "node server",
+    "watchclient": "webpack --config ./build/webpack.client.config.js -w"
   },
   "author": "Jeremy Fan <jeremyfan_14@live.com>",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.0",
     "express": "^4.15.2",
+    "mongoose": "^4.9.7",
     "serve-favicon": "^2.4.2",
     "vue": "^2.3.2",
     "vue-router": "^2.5.2",
