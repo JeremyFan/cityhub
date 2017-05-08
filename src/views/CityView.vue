@@ -1,12 +1,11 @@
 <template>
   <div class="page-city">
+    <!--
     <aside>
       <div class="avatar" :style="{backgroundImage: 'url(/public/images/'+ city + '.jpg)'}"></div>
       <h2>{{ city }}</h2>
-      <!--
-      <p>something cool about me something cool about me</p>
-      -->
     </aside>
+    -->
     <section>
       <weather :now="now" :aqi="aqi"></weather>
       <h3>History AQI Grid</h3>
@@ -21,10 +20,11 @@ import Weather from '../components/Weather.vue'
 import AqiGrid from '../components/AqiGrid.vue'
 
 function preFetch({store, route}) {
+  // hack for nanjing
+  const city = route.params.id === 'nanjing' ? 'CN101190101' : route.params.id
+
   return api
-    .request('weather', {
-      city: route.params.id
-    })
+    .request('weather', { city })
     .then(data => {
       const { aqi, now } = data
       Object.assign(store, { aqi: aqi.city, now })
@@ -65,6 +65,7 @@ export default {
 .page-city
   display flex
   margin 0 180px
+  /*
   aside
     width 250px
     
@@ -78,7 +79,7 @@ export default {
     h2
       font-weight normal
       text-transform capitalize
-  
+  */
   section
     flex 1
 </style>
