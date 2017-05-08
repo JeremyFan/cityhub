@@ -1,6 +1,6 @@
 <template>
   <article class="weather">
-    <div class="bg"></div>
+    <div class="bg" :style="bgStyle"></div>
     <div class="cover"></div>
     <div class="content">
       <!-- <h3>AQI Now</h3> -->
@@ -38,12 +38,14 @@ export default {
   props: ['now', 'aqi'],
 
   data(){
-    const styleObj={
-      background: 'lightgreen'
+    const city = this.$route.params.id
+
+    const bgStyle = {
+      'backgroundImage': `url(/public/images/${city}.jpg)`
     }
 
     return {
-      styleObj,
+      bgStyle,
       aqiList: ['pm10', 'co', 'no2', 'o3', 'so2']
     }
   },
@@ -75,7 +77,7 @@ export default {
     width 100%
     height 100%
     padding 10px
-    background no-repeat 50% 50% url('/public/images/s_2.jpg')
+    background no-repeat 50% 50%
     background-size cover
     filter blur(5px)
 

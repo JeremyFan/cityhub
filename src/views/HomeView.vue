@@ -24,10 +24,10 @@ export default {
         'guangzhou',
         'shenzhen',
         'hangzhou',
-        'chengdu',
-        'nanjing',
         'tianjin',
-        'xiamen'
+        'nanjing',
+        'xiamen',
+        'chengdu'
       ]
     }
   }
